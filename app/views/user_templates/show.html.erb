@@ -19,10 +19,10 @@
 </tr>
 <% @one_user.own_photos.each do|user|%>
 <tr> 
-<td><img src="<%= user.image %>"></td>
-<td><%= user.poster.username %></td>
-<td><%= user.caption %></td>
-<td><%= user.created_at %></td>
+<td><img src="<%=user.image %>"></td>
+<td><%=user.poster.username %></td>
+<td><%=user.caption %></td>
+<td><%=user.created_at %></td>
 <td> Show Details</td>
 </tr>
 <% end %>
