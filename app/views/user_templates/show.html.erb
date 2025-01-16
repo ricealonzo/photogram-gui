@@ -1,0 +1,30 @@
+<h1><%= @one_user.username%> <h1>
+<dl>
+<dt>ID</dt>
+<dd><%= @one_user.id%></dd>
+
+<dt> Edit User</dt>
+<dd> update form goes here </dd>
+</dl>
+
+<h2><%= @one_user.username%> has <%= @one_user.own_photos.count%> photos. </h2>
+
+<table border="1">
+<tr>
+<th>Image</th>
+<th>Owner</th>
+<th>Caption</th>
+<th>Posted</th>
+<th></th>
+</tr>
+<% @one_user.own_photos.each do|user|%>
+<tr> 
+<td><img src="<%= user.image %>"></td>
+<td><%= user.poster.username %></td>
+<td><%= user.caption %></td>
+<td><%= user.created_at %></td>
+<td> Show Details</td>
+</tr>
+<% end %>
+</table>
+ 
