@@ -1,2 +1,91 @@
+<h1> Photo Details </h1>
+<%= @photo_detail%>
+<dl>
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src="<%=@photo_detail.image%>" alt="">
+  </dd>
 
-<h1>
+  <dt>
+    Caption
+  </dt>
+  <dd>
+    <p>
+     <%=@photo_detail.caption%>
+    </p>
+  </dd>
+
+  <dt>
+    Owner
+  </dt>
+  <dd>
+    <%=@photo_detail.poster.username%>%
+  </dd>
+
+  <dt>
+    Posted
+  </dt>
+  <dd>
+    <%=@photo_detail.created_at%>
+  </dd>
+
+  <dt>
+    Edit photo
+  </dt>
+  <dd>
+    <form action="/update_photo/<%= photo_detail.id%>" method="post">
+      <label for="browser_image">Image</label>
+      <input id="browser_image" type="text" name="input_image" placeholder="Enter a URL for the image..." value=<%= photo_detail.image%>>
+
+      <label for="browser_caption">Caption</label>
+      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo...">... a mind needs books as a sword needs a whetstone, if it is to keep its edge.</textarea>
+
+      <button>Update photo</button>
+    </form>
+  </dd>
+
+  <dt>
+    Delete photo
+  </dt>
+  <dd>
+    <a href="/delete_photo/<%=@photo_detail.id%>">
+      Delete this photo
+    </a>
+  </dd>
+</dl>
+
+<h2>Comments</h2>
+
+<table>
+  <tr>
+    <th>
+      Commenter
+    </th>
+
+    <th>
+      Comment
+    </th>
+
+    <th>
+      Posted
+    </th>
+  </tr>
+
+  <% @photo_detail.comments.each do |user_comment|%>
+    <tr>
+      <td>
+        <%= user_comment.commenter.username%>
+      </td>
+
+      <td>
+         <%= user_comment.body%>
+      </td>
+
+      <td>
+         <%= user_comment.created_at%>
+      </td>
+    </tr>
+    <% end %>
+</table>

@@ -1,4 +1,4 @@
-<h1><%= @one_user.username%> <h1>
+<h1><%= @one_user.username %> <h1>
 <dl>
 <dt>ID</dt>
 <dd><%= @one_user.id%></dd>
@@ -23,7 +23,7 @@
 <td><%=user.poster.username %></td>
 <td><%=user.caption %></td>
 <td><%=user.created_at %></td>
-<td> Show Details</td>
+<td> <a href="/photos/<%= user.id %>">Show Details</a></td>
 </tr>
 <% end %>
 </table>
