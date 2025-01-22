@@ -35,12 +35,12 @@
     Edit photo
   </dt>
   <dd>
-    <form action="/update_photo/<%= photo_detail.id%>" method="post">
+    <form action="/update_photo/<%= @photo_detail.id%>" method="post">
       <label for="browser_image">Image</label>
-      <input id="browser_image" type="text" name="input_image" placeholder="Enter a URL for the image..." value=<%= photo_detail.image%>>
+      <input id="browser_image" type="text" name="input_image" placeholder="Enter a URL for the image..." value=<%=@photo_detail.image%>>
 
       <label for="browser_caption">Caption</label>
-      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo..."><%=photo_detail.caption%></textarea>
+      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo..."><%=@photo_detail.caption%></textarea>
 
       <button>Update photo</button>
     </form>
