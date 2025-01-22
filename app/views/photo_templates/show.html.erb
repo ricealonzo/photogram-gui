@@ -40,7 +40,7 @@
       <input id="browser_image" type="text" name="input_image" placeholder="Enter a URL for the image..." value=<%= photo_detail.image%>>
 
       <label for="browser_caption">Caption</label>
-      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo...">... a mind needs books as a sword needs a whetstone, if it is to keep its edge.</textarea>
+      <textarea id="browser_caption" name="input_caption" placeholder="Enter a caption for the photo..."><%=photo_detail.caption%></textarea>
 
       <button>Update photo</button>
     </form>
