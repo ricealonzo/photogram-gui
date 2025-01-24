@@ -35,6 +35,6 @@ class PhotosController <ApplicationController
   end
   def update
     
-  ender({:templates => ("/photo_templates/update")  })
+  render({:templates => ("/photo_templates/update")  })
   end
 end
