@@ -31,10 +31,40 @@ class PhotosController <ApplicationController
 
     a_new_photo.save
    redirect_to("/photos/#{a_new_photo.id}")
-    # render({:templates => ("/photo_templates/create")  })
+    # render({:template => ("/photo_templates/create")  })
   end
   def update
     
-  render({:templates => ("/photo_templates/update")  })
+    url_edit_id = params.fetch("edit_id")
+    the_photo = Photo.where({:id => url_edit_id}).at(0)
+    
+    url_edit_image = params.fetch("input_image")
+    url_edit_caption = params.fetch("input_caption")
+    
+    the_photo.image = url_edit_image   
+    the_photo.caption = url_edit_caption
+    
+    the_photo.save
+    redirect_to("/photos/#{the_photo.id}") 
+    #render({:template => ("/photo_templates/update")})
+  end
+  def comment
+    
+      input_photo_id = params.fetch("input_photo_id")
+      input_author_id = params.fetch("input_author_id")
+      input_comment = params.fetch("input_comment")
+      
+      a_new_comment = Comment.new
+      a_new_comment.photo_id =input_photo_id 
+      a_new_comment.author_id = input_author_id
+      a_new_comment.body = input_comment
+  
+     
+  
+      a_new_comment.save
+     redirect_to("/photos/#{a_new_comment.photo_id}")
+      # render({:template => ("/photo_templates/create")  })
+  
+    #render({:template => ("/photo_templates/comment")})
   end
 end
